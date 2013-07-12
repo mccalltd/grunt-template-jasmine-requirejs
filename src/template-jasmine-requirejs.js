@@ -82,6 +82,9 @@ exports.process = function(grunt, task, context) {
     });
   }
 
+  // Fix the template dir so it works with an outfile in a different directory.
+  context.temp = baseUrl + context.temp;
+
   if (!(version in requirejs)) {
       throw new Error('specified requirejs version [' + version + '] is not defined');
   } else {
