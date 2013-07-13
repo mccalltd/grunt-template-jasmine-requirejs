@@ -83,8 +83,8 @@ exports.process = function(grunt, task, context) {
   }
 
   // Fix the template dir so it works with an outfile in a different directory.
-  if (baseUrl !== './') {
-    context.temp = baseUrl + context.temp;      
+  if (baseUrl.match(/^\.\.\//)) {
+    context.temp = baseUrl + context.temp;
   }
 
   if (!(version in requirejs)) {
